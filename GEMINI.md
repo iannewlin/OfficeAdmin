@@ -27,9 +27,9 @@ Named after **Athena**, the goddess of wisdom, strategy, and handicraft.
 ### Phase 3: The Integrated Office (Workflows)
 *   **Objective:** Connect these isolated tools into a cohesive operating system.
 *   **Features:**
+    *   **n8n Automation:** Deployed instance on port 5679 to handle business operations, finances, and workflow automation.
+    *   **Baserow Database:** No-code database platform on port 8081 for managing practice data (finances, inventory, client tracking).
     *   **Single Sign-On (SSO):** Unify access using a central identity provider (possibly Authentik or Keycloak, or leveraging Tailscale).
-    *   **Nextcloud + Mail:** Integration for attachments and contacts.
-    *   **Mattermost + Webhooks:** Notifications from other stacks (e.g., "New Client Form Submitted" from Hermes).
 
 ## Proposed Tech Stack (Docker-Based)
 
@@ -54,6 +54,18 @@ Named after **Athena**, the goddess of wisdom, strategy, and handicraft.
 *   **Why:** 
     *   *Poste.io:* Simple, monolithic container, easy to manage.
     *   *Stalwart:* Modern, written in Rust, highly performant and secure.
+
+### 5. Workflow Automation
+*   **Service:** **n8n**.
+*   **Role:** Visual automation tool for business logic and integrations.
+*   **Port:** 5679 (to avoid conflict with Hermes).
+*   **URL:** `https://fedora.bream-kettle.ts.net:5679/`
+
+### 6. Database Management
+*   **Service:** **Baserow**.
+*   **Role:** No-code database platform for structured data management.
+*   **Port:** 8081.
+*   **URL:** `https://fedora.bream-kettle.ts.net:8081/`
 
 ## Integration with Ecosystem
 *   **Host:** `Heimdall` (100.91.66.125) - The central server.
